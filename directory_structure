@@ -1,0 +1,53 @@
+├───dags (managing workflow)
+│   ├───dag_1.py   
+│
+├───data 
+│   ├─modified
+│   │   transformed_data.xslx
+│   ├─raw
+│       data.xlsx
+│
+├───plugins (code we basically insert to dags so dags file would just mainly focus on scheduling)
+│   ├───hooks (connecting to sources)
+│   │      pysftp_hook.py
+│   │      servicenow_hook.py
+│   │   
+│   ├───sensors (trigger for events)
+│   │      ftp_sensor.py
+│   │      sql_sensor.py
+│   │
+│   ├───operators (moves the data)
+│   │      servicenow_to_azure_blob_operator.py
+│   │      postgres_templated_operator.py
+│   │
+│   ├───scripts (transformation and data warehousing)
+│       ├───transformation           
+│       │       transform_1.py 
+│       │
+│       ├───dw (data warehouse)
+│       │    ├───cube 
+│       │    │     cube_1.sql
+│       │    │     cube_2.sql
+│       │    │   
+│       │    ├───data_modeling
+│       │        ├───facts_table 
+│       │        │       fact_table_1.sql 
+│       │        │
+│       │        ├───dims_table 
+│       │                dim_table_1.sql      
+│       │
+│       ├───dm (data mart)
+│           ├───cube 
+│           │     cube_1.sql
+│           │     cube_2.sql
+│           │   
+│           ├───data_modeling
+│               ├───facts_table 
+│               │       fact_table_1.sql 
+│               │
+│               ├───dims_table 
+│                       dim_table_1.sql   
+│                                     
+│ architecture_diagram          
+│ .airflowignore
+│ docker-stack-airflow.yml
